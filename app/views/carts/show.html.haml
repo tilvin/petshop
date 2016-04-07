@@ -1,0 +1,49 @@
+.container
+  = form_for @cart do |f|
+    = f.fields_for :line_items do |li|
+      .row
+        .col-lg-2
+          = link_to (image_tag li.object.stuff.picture.stuff_cart), pet_stuff_path(li.object.stuff.pet, li.object.stuff)
+        .col-lg-3   
+          = link_to li.object.stuff.name
+          %br
+          = li.object.stuff.brand.name 
+          %br
+          - if li.object.color.present?
+            = li.object.color
+            = image_tag "#{li.object.color}.jpg", size: '15x15' 
+          -if li.object.weight_id.present?
+            - @weight = Weight.find(li.object.weight_id)
+            = "#{@weight.size} кг" 
+        .col-lg-1  
+          = li.text_field :quantity, style: "width: 50px", value: li.object.quantity
+        .col-lg-1
+          = "#{li.object.stuff.sale} %"
+        .col-lg-2
+          -if li.object.weight_id.present?
+            = @weight.price - (@weight.price/100 * li.object.stuff.sale)
+          - else
+            = li.object.stuff.price - (li.object.stuff.price/100 * li.object.stuff.sale)
+        .col-lg-2
+          -if li.object.weight_id.present?
+            = (@weight.price - (@weight.price/100 * li.object.stuff.sale)) * li.object.quantity
+          - else
+            = (li.object.stuff.price - (li.object.stuff.price/100 * li.object.stuff.sale)) * li.object.quantity 
+             
+        .col-lg-1
+          = link_to (image_tag 'delete3.png', size: '20x20'), li.object, :method => :delete, :data => { :confirm => 'Are you sure?' }   
+
+    =  @cart.price_not_weight + @cart.price_weight
+    
+    .actions
+      = f.submit 'Рассчитать'
+
+
+
+
+  
+
+  
+           
+ 
+

@@ -1,0 +1,20 @@
+.disc_name_show
+  = @discount.name
+.disc_pic
+  = image_tag @discount.picture
+
+= @discount.start
+
+= @discount.end
+
+.disc_description
+  = @discount.description
+
+
+- @discount.stuffs.each_slice(3) do |slice|
+  .row
+    - slice.each do |stuff|
+      .col-lg-4 
+        =render "shared/sale_stuff", stuff: stuff
+          
+         

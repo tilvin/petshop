@@ -1,0 +1,41 @@
+.stuff_block
+  .stuff_name
+    .row
+      .col-lg-12
+        = link_to stuff.brand.name, [stuff.pet, stuff]
+        = link_to "#{stuff.name} #{stuff.annotation}", [stuff.pet, stuff]
+    .row
+      .col-lg-12
+        = link_to (image_tag stuff.picture.stuff_ind), [stuff.pet, stuff] 
+      .col-lg-12
+        -if stuff.color
+          - stuff.color.each_slice(5) do |slice|
+            %br
+            .row
+              - slice.each do |color|
+                = image_tag "#{color}.jpg", size: '25x25'    
+    
+    - if stuff.weights.present?                
+      - stuff.weights.each do |a|
+        .wp
+          .row
+            .col-lg-3
+              .weight
+                = "#{a.size} кг"
+            .col-lg-5
+              .stuff_price_discount
+                = "#{a.price} руб"
+              - if stuff.sale > 0
+                .stuff_price_weight
+                  = "#{(100 - stuff.sale) * a.price / 100} руб."
+            .col-lg-4
+    - else 
+      .row
+        .col-lg-8{style: 'padding-top: 8px;'}
+          .stuff_price_discount
+            = "#{stuff.price} руб."
+          - if stuff.sale > 0
+            .stuff_price_weight
+              = "#{(100 - stuff.sale) * stuff.price / 100} руб."  
+        .col-lg-4
+          

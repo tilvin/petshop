@@ -1,0 +1,103 @@
+/ .pets_main
+/   .row
+/     - @pets.each do |pet|
+/       .col-lg-2
+/         .pets_main_one
+/           = link_to (image_tag pet.picture.pet), pet
+/         .pet_up_name
+/           = link_to t(pet.name), pet
+
+.discount_main
+  #carousel-example-generic.carousel.slide{"data-ride" => "carousel"}
+    .carousel-inner
+      .item.active
+        = image_tag('1.jpg', class: "center-block")
+      - @discounts.each do |discount|
+        .item
+          = link_to( image_tag(discount.picture.discount_show, class: "center-block") , discount)
+
+    %a.left.carousel-control{href: "#carousel-example-generic", role: "button", "data-slide" => "prev"}
+      %span.glyphicon.glyphicon-chevron-left{"aria-hidden" => "true"}
+      %span.sr-only
+        Previous
+
+    %a.right.carousel-control{href: "#carousel-example-generic", role: "button", "data-slide" => "next"}
+      %span.glyphicon.glyphicon-chevron-right{"aria-hidden" => "true"}
+      %span.sr-only
+        Next
+
+.container
+  .row
+    .col-lg-3
+      - @pets.each do |pet|
+        .pet_name
+          = link_to (image_tag pet.picture.pet, size: '60x60'), pet
+          = link_to t(pet.name), pet_path(pet)
+          %br
+        - if pet == @pet
+          - pet.stuffs.map(&:group).uniq.each do |group|
+            .stuff_left
+              = link_to t(group), pet_stuffs_path(@pet, {group: group})
+            %br      
+    .col-lg-9
+
+      .discount_main
+      - @stuffs.only_discount.group_by(&:pet).each do |pet, group|
+        .best_offer_pet
+          = t(pet.name)
+        
+        - group.first(6).each_slice(3).with_index do |slice, index|
+          .row
+            - slice.each do |stuff|
+              .col-lg-4
+                = render "shared/sale_stuff", stuff: stuff       
+
+                        
+
+
+                   
+                 
+
+        
+
+/ .discount_main
+
+/   .best_offer
+/     - @stuffs.only_discount.group_by(&:pet).each do |pet, group|
+/       .best_offer_pet
+/         = t(pet.name)
+/       - group.each_slice(4) do |slice|
+/         .row
+/           - slice.each do |item|
+/             .item
+/               .col-lg-3
+/                 .stuff_block
+/                   .stuff_name
+/                     = link_to item.name, [item.pet, item]
+/                   .brand
+/                     = item.brand.downcase
+/                   .weight  
+/                     = "#{item.weight} кг"
+/                   = link_to (image_tag item.picture.stuff_ind), [item.pet, item]
+/                   .stuff_price_discount
+/                     = "#{item.price} руб"
+/                   .stuff_price
+/                     = "#{item.price - (item.price/100 * item.sale)} руб"
+
+/                   = form_for LineItem.new, url: carts_path  do |f|
+
+/                     .field
+/                       = f.hidden_field :stuff_id, value: item.id
+
+/                       = f.number_field :quantity
+/                       = button_to 'add'
+
+
+
+/ %td= link_to 'Show', pet
+/ %td= link_to 'Edit', edit_pet_path(pet)
+/ %td= link_to 'Destroy', pet, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+
+
+/ = link_to 'New Pet', new_pet_path

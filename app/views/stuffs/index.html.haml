@@ -1,0 +1,18 @@
+.container
+  .row
+    =render "shared/left_column"
+
+    .col-lg-9
+      - @stuffs.each_slice(3) do |slice|
+        .row
+          - slice.each do |stuff|
+            .col-lg-4{style: 'padding-bottom: 15px;'}
+              - if stuff.sale?
+                = render "shared/sale_stuff", stuff: stuff
+              -else  
+                = render "shared/stuff", stuff: stuff
+        / %td= link_to 'Show', pet_stuff_path(@pet, @stuff)
+        / %td= link_to 'Edit', edit_pet_stuff_path(@pet, @stuff)
+        / %td= link_to 'Destroy', pet_stuff_path(@pet), :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br

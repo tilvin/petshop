@@ -1,0 +1,42 @@
+
+.stuff_block
+  .stuff_name
+    .row
+      .col-lg-12
+        = link_to stuff.brand.name, [stuff.pet, stuff]
+        = link_to "#{stuff.name} #{stuff.annotation}", [stuff.pet, stuff]
+    .row
+      .col-lg-12
+        = link_to (image_tag stuff.picture.stuff_ind), [stuff.pet, stuff] 
+      .col-lg-12
+        -if stuff.color
+          - stuff.color.each_slice(5) do |slice|
+            %br
+            .row
+              - slice.each do |color|
+                = image_tag "#{color}.jpg", size: '25x25'
+
+    
+    - if stuff.weights.present?                
+      - stuff.weights.each do |a|
+        .wp
+          .row
+            .col-lg-3
+              .weight
+                = "#{a.size} кг"
+            .col-lg-5
+              .stuff_price
+                = "#{a.price} руб"
+            .col-lg-4
+              
+    - else 
+      .stuff_price
+        .row
+          .col-lg-8{style: 'padding-top: 8px;'}
+            .stuff_price
+              = "#{stuff.price} руб."  
+          .col-lg-4
+  
+              
+
+                

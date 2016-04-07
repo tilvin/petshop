@@ -1,0 +1,334 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ .header_0 {
+  background: #AD3636;
+
+  height: 60px;
+  margin-top: 10px ;
+ }
+.header_0 a{
+  text-transform: uppercase;
+}
+.cart_field {
+  float: right;
+  padding: 10px 20px;
+  color: white;
+}
+
+.item_count {
+  font-size: 18px;
+  padding: 5px 5px;
+  background: white;
+  float: right;
+  border-radius: 20px;
+  margin-left: 5px;
+}
+
+ .header_1 {
+  background: #f4f2e1;
+  margin-bottom: 20px;
+  font-size: 50px;
+  font-family: 'Neucha', cursive;
+ }
+ .company_name {
+  font-size: 50px;
+  letter-spacing: 4px;
+  padding-bottom: 40px;
+  padding-left: 40px;
+  padding-top: 50px;
+ }
+ .phone {
+  font-size: 20px;
+  font-weight: bold;
+  float: right;
+  margin-right: 40px;
+  color: #AD3636;
+
+ }
+ .logo_icon {
+  margin-right: 30px;
+  margin-bottom: 30px;
+  background: #f4f2e1;
+  text-align: center;
+
+ }
+ .logo_icon_footer{
+  padding-top: 20px;
+  margin-bottom: 30px;
+  margin-top: 50px;
+  background: #f4f2e1;
+  text-align: center;
+ }
+ .logo_title {
+  text-align: center;
+  font-size: 18px;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+  margin-top: 5px;
+  font-family: 'Neucha', cursive;
+  }
+  .pets_main {
+    text-align: center;
+  }
+  .pets_main_one {
+    padding: 0 15px;
+    display: inline;
+  }
+  .discount_main {
+    text-align: center;
+    padding-top: 30px;
+  }
+ .group {}
+
+ .group_block {
+  padding: 25px 10px;
+ }
+
+ .group_block a{
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 15px;
+  font-weight: bold;
+ }
+
+ .pet_name a{
+  font-family: 'Neucha', cursive;
+  font-size: 30px;
+  padding: 20px 20px 0px 0;
+  color: #AD3636;
+ }
+ .pet_name {
+  color: #AD3636;
+  padding: 20px 20px 0px 0;
+
+ }
+ .pet_up_name {
+  font-family: 'Neucha', cursive;
+  font-size: 25px;
+  padding: 20px 0;
+ }
+.best_offer {
+  font-family: 'Neucha', cursive;
+  color: #305373;
+  font-weight: bold;
+  font-size: 35px;
+  text-align: center;
+  letter-spacing: 1px;
+  margin-top: 15px;
+}
+.best_offer_img {
+  margin: 10px 0;
+  text-align: center;
+}
+.best_offer_pet {
+  font-size: 30px;
+  letter-spacing: 2px;
+  font-family: 'Neucha', cursive;
+  font-weight: bold;
+  color: #AD3636;
+  padding: 35px 0;
+  text-transform: uppercase;
+  text-align: center;
+
+  }
+ .stuff_left {
+  padding-top: 10px;
+  padding-left: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #CCCACA;
+  font-family: 'Kurale', serif;
+  font-size: 20px;
+  text-align: center;
+ }
+ .stuff_left_main {
+  margin: 10px 10px;
+ }
+ .stuff_block {
+  border: 1px solid #EAEAEA;
+  font-family: 'Forum', cursive;
+  letter-spacing: 1px;
+  padding-top: 10px;
+  text-align: center;
+ }
+ .stuff_block img {
+ }
+ .stuff_price {
+  font-size: 20px;
+  font-weight: bold;
+  color: #A22D1E;
+  padding-top: 10px;
+ }
+  .stuff_price_weight {
+  font-size: 20px;
+  font-weight: bold;
+  color: #A22D1E;
+  text-align: right;
+ }
+ .stuff_price_discount {
+  font-size: 16px;
+  font-weight: bold;
+  color: black;
+  text-decoration: line-through;
+  text-align: right;
+ }
+ .stuff_name {
+  font-size: 19px;
+  padding-bottom: 5px;
+ }
+ .brand {
+  text-transform: capitalize;
+  font-size: 17px;
+  padding-bottom: 15px;
+ }
+ .weight {
+  color: black;
+  font-size: 17px;
+  text-align: right;
+  padding-top: 10px;
+ }
+ .wp {
+  padding: 5px 0;
+ }
+ .quantity {
+ }
+ .table_head {
+  padding: 5px;
+ }
+/*-------------------------------- Stuff show -----------*/
+.stuff_show_block {
+  padding-top: 20px;
+ }
+.stuff_show_annotation {
+  color: #2D3284;
+  padding: 10px 0;
+  font-size: 15px;
+ }
+.stuff_description {
+  font-size: 15px;
+}
+.stuff_size {
+  text-align: center;
+  font-size: 15px;
+}
+.stuff_show_picture img{
+  border: 1px solid #E1E1E1;
+}
+.stuff_show_name {
+  font-size: 20px;
+  color: #AD3636;
+}
+ .brand {
+  text-transform: capitalize;
+  font-size: 17px;
+ }
+  .weight_show {
+  color: black;
+  font-size: 17px;
+  padding-top: 10px;
+ }
+/*---------------------------------- Brand ---------------*/
+.brand_description {
+  padding-top: 20px;
+}
+.brand_description img {
+  padding: 10px;
+  }
+/*-------------------------------- Discount -----------*/
+.discount_ind {
+  padding-top: 30px;
+}
+.discount_block {
+  margin: 20px 0;
+  border-bottom: solid 1px;;
+  padding-bottom: 20px
+}
+.disc_name a{
+  font-size: 17px;
+  color: #AD3636;
+}
+.disc_ann {
+  padding: 10px 0;
+  font-size: 14px;
+}
+.disc_name_show {
+  font-size: 20px;
+  color: #AD3636;
+  padding-bottom: 10px;
+}
+.disc_description {
+  font-size: 15px;
+}
+.disc_pic {
+  padding: 10px 0;
+}
+/*----------------------------------- Brands -------------*/
+.brand_block {
+  margin: 10px 0; 
+}
+.brand img {
+  text-align: center;
+}
+.brand_name {
+  color: #AD3636;
+  text-align: center;
+  font-size: 17px;
+  font-weight: bold;
+  padding-bottom: 10px;
+  }
+  .brand_description {
+    text-align: justify;
+    font-size: 17px;
+    font-family: 'Forum', cursive;
+  }
+
+/*-------------------------------- Vacancies -----------
+.profession {
+  font-size: 30px;
+  letter-spacing: 2px;
+  font-family: 'Neucha', cursive;
+  font-weight: bold;
+  color: #AD3636;
+  padding: 35px 0;
+  text-transform: uppercase;
+}
+.profession_block {
+  padding-left: 10px;
+}
+.duty_top {
+  font-family: 'Kurale', serif;
+  font-size: 23px;
+  margin: 10px 0;
+
+}
+.duty {
+  font-family: 'Kurale', serif;
+  font-size: 18px;
+  padding: 10px 10px;
+  list-style-type: circle;
+  text-transform: lowercase;
+}
+
+input[type=submit] {
+  background:url(/assets/cart1.png) no-repeat;
+  cursor:pointer;
+  width: 50px;
+  height: 30px;
+  border: none;
+}
+
+.stuff_show_description {
+  padding-bottom: 10px;
+}

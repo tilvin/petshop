@@ -1,0 +1,23 @@
+.container
+  .row
+    .col-lg-3
+      - @pets.each do |pet|
+        .pet_name
+          = link_to (image_tag pet.picture.pet, size: '60x60'), pet
+          = link_to t(pet.name), pet_path(pet)
+          %br
+        - if pet == @pet
+          - pet.stuffs.map(&:group).uniq.each do |group|
+            .stuff_left
+              = link_to t(group), pet_stuffs_path(@pet, {group: group})
+            %br
+
+    .col-lg-9
+      .best_offer
+        Лучшие предложения от "Главное - хвост!"
+      %br
+      - (@pet.stuffs.only_discount).each_slice(3) do |slice|
+        .row
+          - slice.each do |stuff|
+            .col-lg-4
+              =render "shared/sale_stuff", stuff: stuff

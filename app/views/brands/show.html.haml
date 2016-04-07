@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @brand.name
+%p
+  %b Picture:
+  = @brand.picture
+%p
+  %b Description:
+  = @brand.description
+%p
+  %b Country:
+  = @brand.country
+%p
+  %b String:
+  = @brand.string
+
+= link_to 'Edit', edit_brand_path(@brand)
+\|
+= link_to 'Back', brands_path

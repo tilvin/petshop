@@ -1,0 +1,44 @@
+= form_for ([@pet, @stuff]) do |f|
+  - if @stuff.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@stuff.errors.count, "error")} prohibited this stuff from being saved:"
+      %ul
+        - @stuff.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :pet_id
+    = f.select :pet_id, Pet.all.map {|p| [p.name, p.id]}
+  
+  .field
+    .input-group
+      = f.label t(:name)
+      = f.text_field :name
+ 
+  #weights
+    = f.fields_for :weights do |weight|
+      = render "shared/weight_fields", f: weight
+    .links
+      = link_to_add_association 'add weight', f, :weights, :partial => 'shared/weight_fields'
+  
+  .field
+    .input_group
+      = f.label t(:description)
+      = f.text_area :description, :class => "form-control"
+  .field
+    - ['red', 'blue', 'black', 'brown', 'grey', 'pink', 'green', 'yellow', 'violet'].each do |a|
+      = f.label "color_#{a}", a
+      = check_box_tag "stuff[color][]", a, @stuff.color.include?(a), id: "stuff_color_#{a}"
+    
+
+  .field
+    = f.label :brand_id
+    = f.select :brand_id, Brand.all.map {|br| [br.name, br.id]}
+  .field
+    = f.label :discount_id 
+    = f.select :discount_id, Discount.all.map {|d| [d.name, d.id]}, { include_blank: true }
+  .field
+    = f.label :sale
+    = f.number_field :sale
+  .actions
+    = f.submit 'Save', class: "btn btn-default"
