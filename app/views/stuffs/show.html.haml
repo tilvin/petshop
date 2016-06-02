@@ -4,7 +4,7 @@
     .col-lg-9        
       .bread_crumbs
         = link_to t(@stuff.pet.name), pet_path(@pet)
-        = link_to t(@stuff.group), pet_path(@pet)
+        = t(@stuff.group)
         = @stuff.name
       .stuff_show_block
         .col-lg-5
@@ -29,9 +29,9 @@
           .stuff_show_description
             = @stuff.description
 
-          - if @stuff.weights.present?                
-            - @stuff.weights.each do |a|
-              = form_for LineItem.new, url: carts_path  do |f|
+          = form_for LineItem.new, url: carts_path  do |f|
+            - if @stuff.weights.present?                
+              - @stuff.weights.each do |a|
                 .wp
                   .row
                     .col-lg-3
@@ -49,48 +49,34 @@
                     .col-lg-4
                       .field
                         = f.hidden_field :stuff_id, value: @stuff.id
-                        = f.hidden_field :weight_id, value: a.id
-                        
-                        = f.submit 'save'   
+                        = f.hidden_field :weight_id, value: a.id  
+                        = f.submit 'купить', class: 'btn btn-danger'    
           
-          - else
-            = form_for LineItem.new, url: carts_path  do |f|
+            - else
+              .row.colors
+                - if @stuff.color.present?
+                  - @stuff.color.each_slice(4) do |slice|
+                    - slice.each do |color|
+                      .color-item
+                        = image_tag "#{color}.jpg", size: '25x25'
+                        = f.label color
+                        = f.radio_button :color, color
               .row
-                .col-lg-9{style: 'padding-top: 8px;'}
+                .col-lg-6{style: 'padding-top: 8px;'}
                   - if @stuff.sale > 0
-
-                    - if @stuff.color.present?
-                      - @stuff.color.each_slice(4) do |slice|
-                        %br
-                        .row
-                          - slice.each do |color|
-                            = image_tag "#{color}.jpg", size: '25x25'
-                            = f.label color
-                            = f.radio_button :color, color
                     .stuff_price_discount
                       = "#{@stuff.price} руб."
                     .stuff_price_weight
-                      
                       = "#{(100 - @stuff.sale) * @stuff.price / 100} руб."        
-                 
-                  -else
-                    - if @stuff.color.present?
-                      - @stuff.color.each_slice(4) do |slice|
-                        %br
-                        .row
-                          - slice.each do |color|
-                            = image_tag "#{color}.jpg", size: '25x25'
-                            = f.label color
-                            = f.radio_button :color, color
+                  - else
                     .stuff_price
                       = "#{@stuff.price} руб."        
                         
                 .col-lg-3
                   .field
                     = f.hidden_field :stuff_id, value: @stuff.id
-                    
-              .actions
-                = f.submit 'save' 
+                  .actions
+                    = f.submit 'купить', class: 'btn btn-danger' 
                       
               
       .row     
@@ -98,12 +84,8 @@
           .brand_description
             = image_tag @stuff.brand.picture.brand, style: "float: left;"
             = @stuff.brand.description
-          
-
-
-
  
-
-      = link_to 'Edit', edit_pet_stuff_path(@pet, @stuff)
+      - if can? :update, @stuff    
+        = link_to 'Edit', edit_pet_stuff_path(@pet, @stuff)
       \|
       = link_to 'Back', pet_stuffs_path(@pet)

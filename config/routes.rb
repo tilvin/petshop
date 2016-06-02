@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
 
 
+  devise_for :users
   resources :brands
   get 'vacancies/index'
 
@@ -10,6 +11,7 @@ Rails.application.routes.draw do
   get 'vacacies/index'
 
   get 'vacacies/show'
+
 
   resources :vacancies
   resources :discounts

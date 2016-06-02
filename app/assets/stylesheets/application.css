@@ -13,57 +13,83 @@
  *= require_tree .
  *= require_self
  */
- .header_0 {
+a {
+  color: black;
+}
+a:hover {
+  color: #AD3636;
+  text-decoration: none;
+}
+body {
+  font-family: 'Forum', cursive;
+}
+.header_0 {
   background: #AD3636;
-
   height: 60px;
   margin-top: 10px ;
- }
-.header_0 a{
-  text-transform: uppercase;
 }
+
 .cart_field {
   float: right;
-  padding: 10px 20px;
+  padding: 15px 40px 0 0;
   color: white;
+  font-size: 19px;
+  letter-spacing: 2px;
 }
 
 .item_count {
   font-size: 18px;
-  padding: 5px 5px;
+  padding: 5px 10px;
   background: white;
   float: right;
   border-radius: 20px;
   margin-left: 5px;
 }
+.email {
+  color: white;
+  line-height: 60px;
+  padding-left: 40px;
+  font-size: 19px;
 
- .header_1 {
+ 
+}
+.email a {
+  color: white;
+  font-size: 19px;
+  letter-spacing: 2px;
+}
+
+
+.header_1 {
   background: #f4f2e1;
   margin-bottom: 20px;
   font-size: 50px;
   font-family: 'Neucha', cursive;
- }
- .company_name {
+}
+.company_name {
   font-size: 50px;
   letter-spacing: 4px;
   padding-bottom: 40px;
   padding-left: 40px;
-  padding-top: 50px;
- }
- .phone {
+  padding-top: 20px;
+}
+.phone {
   font-size: 20px;
   font-weight: bold;
   float: right;
   margin-right: 40px;
   color: #AD3636;
-
- }
+  letter-spacing: 4px;
+  line-height: 130px;
+}
+.subcompany {
+  font-size: 20px;
+}
  .logo_icon {
   margin-right: 30px;
   margin-bottom: 30px;
   background: #f4f2e1;
   text-align: center;
-
  }
  .logo_icon_footer{
   padding-top: 20px;
@@ -80,46 +106,44 @@
   margin-top: 5px;
   font-family: 'Neucha', cursive;
   }
-  .pets_main {
+.pets_main {
     text-align: center;
-  }
-  .pets_main_one {
-    padding: 0 15px;
-    display: inline;
-  }
-  .discount_main {
-    text-align: center;
-    padding-top: 30px;
-  }
- .group {}
+}
+.pets_main_one {
+  padding: 0 15px;
+  display: inline;
+}
+.discount_main {
+  text-align: center;
+  padding-top: 30px;
+}
 
- .group_block {
+.group_block {
   padding: 25px 10px;
  }
 
- .group_block a{
+.group_block a{
   text-transform: uppercase;
   letter-spacing: 1px;
   font-size: 15px;
   font-weight: bold;
  }
 
- .pet_name a{
+.pet_name a{
   font-family: 'Neucha', cursive;
   font-size: 30px;
   padding: 20px 20px 0px 0;
   color: #AD3636;
  }
- .pet_name {
+.pet_name {
   color: #AD3636;
   padding: 20px 20px 0px 0;
-
  }
- .pet_up_name {
+.pet_up_name {
   font-family: 'Neucha', cursive;
   font-size: 25px;
   padding: 20px 0;
- }
+}
 .best_offer {
   font-family: 'Neucha', cursive;
   color: #305373;
@@ -142,14 +166,12 @@
   padding: 35px 0;
   text-transform: uppercase;
   text-align: center;
-
   }
  .stuff_left {
   padding-top: 10px;
   padding-left: 15px;
   padding-bottom: 10px;
   border-bottom: 1px solid #CCCACA;
-  font-family: 'Kurale', serif;
   font-size: 20px;
   text-align: center;
  }
@@ -170,19 +192,19 @@
   font-weight: bold;
   color: #A22D1E;
   padding-top: 10px;
+  display: inline;
  }
   .stuff_price_weight {
   font-size: 20px;
   font-weight: bold;
   color: #A22D1E;
-  text-align: right;
  }
  .stuff_price_discount {
   font-size: 16px;
   font-weight: bold;
   color: black;
   text-decoration: line-through;
-  text-align: right;
+  
  }
  .stuff_name {
   font-size: 19px;
@@ -214,7 +236,8 @@
 .stuff_show_annotation {
   color: #2D3284;
   padding: 10px 0;
-  font-size: 15px;
+  font-size: 17px;
+  text-align: center;
  }
 .stuff_description {
   font-size: 15px;
@@ -229,6 +252,7 @@
 .stuff_show_name {
   font-size: 20px;
   color: #AD3636;
+  text-align: center;
 }
  .brand {
   text-transform: capitalize;
@@ -281,19 +305,37 @@
 .brand img {
   text-align: center;
 }
+
 .brand_name {
   color: #AD3636;
   text-align: center;
   font-size: 17px;
   font-weight: bold;
   padding-bottom: 10px;
-  }
-  .brand_description {
-    text-align: justify;
-    font-size: 17px;
-    font-family: 'Forum', cursive;
-  }
+}
 
+.brand_description {
+  text-align: justify;
+  font-size: 17px;
+  font-family: 'Forum', cursive;
+}
+
+.colors {
+  padding-left: 20px;
+}
+
+.color-item {
+  padding: 10px;
+}
+
+.actions {
+  display: inline;
+}
+
+footer {
+  padding-top: 40px;
+  text-align: center;
+}
 /*-------------------------------- Vacancies -----------
 .profession {
   font-size: 30px;

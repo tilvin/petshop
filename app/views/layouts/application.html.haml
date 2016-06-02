@@ -13,66 +13,46 @@
     = javascript_include_tag "application"
     = javascript_include_tag :cocoon
     <link href='https://fonts.googleapis.com/css?family=Forum|Neucha|Rubik&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+    <link rel="shortcut icon" href="/app/assets/images/fav.ico" type="image/x-icon">
   %body
     .container
-      .row
-        .col-lg-12
-          .header_0
-            - if @cart.present? && @cart.line_items.present?
+      .header_0
+        .row
+          .user
+            .col-lg-6
+              .email
+                - if user_signed_in?
+                  = current_user.email
+                  |
+                  = link_to 'выйти', destroy_user_session_path, :method => :delete 
+                - else
+                  = link_to 'войдите', new_user_session_path
+                  = '//'
+                  = link_to 'зарегистрируйтесь', new_user_registration_path 
+            .col-lg-6
               .cart_field
-                = image_tag 'cart.png', size: '40x40'
-                .item_count
-                  = link_to @cart.line_items.count, cart_path(@cart)
-            -else
-              .cart_field
-                = image_tag 'cart.png', height: '40', width: '40'
-                ='0 товаров'
-          .header_1
+                - if @cart.present? && @cart.line_items.present?
+                  = image_tag 'cart.png', size: '40x40'
+                  .item_count
+                    = link_to @cart.line_items.count, cart_path(@cart)
+                - else
+                  = image_tag 'cart.png', height: '40', width: '40'
+                  ='0 товаров'
+      .header_1
+        .row
+          .col-lg-8
             .company_name
-              .row
-                Главное - хвост !
-                .phone
-                  = image_tag 'phone.png', height: '30', width: '45'
+              Главное - хвост !
+              .subcompany
+                интернет-магазин товаров для домашних животных
+          .col-lg-4
+            .phone
+              = image_tag 'phone.png', height: '30', width: '45'
 
-                  (890) 789-654-312
-
-
-            .logo_icon
-              .row
-                .col-lg-2
-                  = link_to (image_tag 'Home.png', size: '50x50'), pets_path
-                  .logo_title
-                    = link_to 'главная', pets_path
-                .col-lg-2
-                  = image_tag 'email6.png', height: '50', width: '50'
-                  .logo_title
-                    напишите нам письмо
-                .col-lg-2
-                  = image_tag 'deliv3.png', height: '55', width: '55'
-                  .logo_title
-                    оплата и доставка
-                .col-lg-2
-                  = link_to (image_tag 'case.png', size: '50x50'), brands_path
-                  .logo_title
-                    = link_to 'бренды', brands_path
-                .col-lg-2
-                  = link_to (image_tag 'work.png',  size: '50x50'), vacancies_path
-                  .logo_title
-                    =link_to 'вакансии', vacancies_path
-                .col-lg-2
-                  = link_to (image_tag 'sale.png', size: '50x50'), discounts_path
-                  .logo_title
-                    = link_to 'акции', discounts_path
+              (890) 789-654-312
 
 
-
-
-
-          = bootstrap_flash
-          = yield
-
-      %footer
-        .logo_icon_footer
+        .logo_icon
           .row
             .col-lg-2
               = link_to (image_tag 'Home.png', size: '50x50'), pets_path
@@ -87,15 +67,24 @@
               .logo_title
                 оплата и доставка
             .col-lg-2
-              = image_tag 'case.png', height: '50', width: '50'
+              = link_to (image_tag 'case.png', size: '50x50'), brands_path
               .logo_title
-                вакансии
+                = link_to 'бренды', brands_path
             .col-lg-2
-              = image_tag 'work.png', height: '50', width: '50'
+              = link_to (image_tag 'work.png',  size: '50x50'), vacancies_path
               .logo_title
-                вакансии
+                =link_to 'вакансии', vacancies_path
             .col-lg-2
-              = image_tag 'sale.png', height: '50', width: '50'
+              = link_to (image_tag 'sale.png', size: '50x50'), discounts_path
               .logo_title
-                акции
-      %p &copy; Company 2015
+                = link_to 'акции', discounts_path
+
+
+
+
+
+      = bootstrap_flash
+      = yield
+
+  %footer
+    %p &copy; Company 2015

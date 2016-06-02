@@ -5,7 +5,7 @@ class StuffsController < ApplicationController
   # GET /stuffs
   # GET /stuffs.json
   def index
-    @stuffs = @pet.stuffs.send(params[:group])
+    @stuffs = @pet.stuffs.send(params[:group]).sort_by { |st| st.name }
     @pets = Pet.all
   end
 
@@ -13,7 +13,6 @@ class StuffsController < ApplicationController
   # GET /stuffs/1.json
   def show
     @pets = Pet.all
-
   end
 
   # GET /stuffs/new

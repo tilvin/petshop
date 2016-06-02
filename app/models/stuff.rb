@@ -2,6 +2,7 @@ class Stuff < ActiveRecord::Base
   belongs_to :pet
   belongs_to :discount
   belongs_to :brand
+  belongs_to :user
    
   mount_uploader :picture, PictureUploader
   
@@ -17,4 +18,6 @@ class Stuff < ActiveRecord::Base
 
   scope :only_discount, -> { where.not(sale: 0) }
 
+  validates :name, :pet_id, presence: true
+  # validates :price, numericality: { greater_than: 0}
 end

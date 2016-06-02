@@ -17,21 +17,20 @@ class CartsController < ApplicationController
     @cart = Cart.new
   end
 
-  # GET /carts/1/edit
   def edit
   end
 
-  # POST /carts
-  # POST /carts.json
   def create
     # @cart = Cart.new(cart_params)
     @cart = Cart.last || Cart.create
-    LineItem.create(
+    @line_item = LineItem.create(
                       cart: @cart,
                       weight_id: params[:line_item][:weight_id], 
                       stuff_id: params[:line_item][:stuff_id],
                       color: params[:line_item][:color]
                     )
+    flash[:error] = @line_item.errors.full_messages
+
     redirect_to :back
   end
 

@@ -26,6 +26,9 @@ gem "haml-rails", "~> 0.9"
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'twitter-bootstrap-rails'
+gem 'devise', github: 'plataformatec/devise'
+gem 'cancan'
+gem 'cocoon'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -45,6 +48,10 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
-  gem "cocoon"
+  
+  gem 'bcrypt'
+  gem 'factory_girl_rails', "~> 4.0"
+  gem 'rspec-rails', '~> 3.2.3'
+
 end
 

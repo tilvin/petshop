@@ -23,3 +23,11 @@ ru:
   green: 'зеленый'   
   yellow: 'желтый'   
   violet: 'фиолетовый' 
+
+  activerecord:
+    errors:
+      models:
+        line_item:
+          attributes:
+            color:
+              blank: 'Выберите цвет' 

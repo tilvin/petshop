@@ -51,7 +51,11 @@ brands = [
   Впитывающий наполнитель Catsan представляет собой белые гранулы, которые состоят из натурального кварцевого песка, очищенного мела и н
   атуральных минеральных добавок. Мелкопористые гранулы впитывают влагу, как губка. Запатентованная технология Extra Mineral Protection 
   обеспечивает дополнительную защиту от запаха: активные вещества пресекают размножение бактерий и, соответсвенно, удерживают запах внутри  
-  гранулы.', File.open('app/assets/images/brand/catsan.jpg')]
+  гранулы.', File.open('app/assets/images/brand/catsan.jpg')],
+  ['DUKES FARM', 'Великобритания', 'Больше мяса – больше пользы! Корма DUKE’S FARM – это полноценные сбалансированные корма, произведенные 
+  в Англии с целью обеспечить собак и кошек разных пород и всех возрастов натуральным высококачественным питанием. Корма DUKE’S FARM 
+  представляют собой высокобелковую и низкоуглеводную диету, максимально приближенную к рациону хищника в природе.', 
+  File.open('app/assets/images/brand/duke.jpg')]
 ]    
 
 brands.each do |name, country, description, picture|
@@ -65,14 +69,9 @@ gigwi = Brand.find_by(name: 'GiGwi')
 catsan = Brand.find_by(name: 'Catsan')
 royal_canin = Brand.find_by(name: 'ROYAL CANIN')
 fat_cat = Brand.find_by(name: 'Fat Cat')
+duke = Brand.find_by(name: 'DUKES FARM')
 
 
- # Для совместной игры хозяина и питомца. Прекрасная возможность укрепить взаимоотношения между 
- #    Вами и Вашим четвероногим другом. Уникальная форма игрушки способствует массажу десен во время игры, удаляет зубной налет. Отлично летает. Плавает на поверхности воды. 
- #    Подходит для игры на суше и воде.
-
-#  Специальный мяч с отверстиями для лакомств. Изготовлен из прочной резины. Спрячьте внутри мяча вкусное вознаграждение. Специальный дизайн
-#   отверстия не позволит лакомству легко выпасть. Долговечная игрушка займет вашего питомца надолго 
 stuffs = [ 
   [dog, 'toys', (6..10).to_a.sample, 'мяч', gigwi, 'мяч из плотной резины, размер средний', '250.0', File.open('app/assets/images/dog toys/ball1.jpg')],
   [dog, 'toys', (6..10).to_a.sample, 'мяч', gigwi, 'мяч из плотной резины, размер средний', '240.0', File.open('app/assets/images/dog toys/ball2.jpg')],
@@ -95,27 +94,31 @@ stuffs = [
   [dog, 'foods','','корм сухой', royal_canin,'size giant pappy для щенков гигантских пород собак', '0', File.open('app/assets/images/dog foods/drk-9.jpg')],
   [dog, 'foods','','корм сухой', royal_canin,'labrador junior для щенков породы лабрадор', '0', File.open('app/assets/images/dog foods/drk-11.jpg')],
   [dog, 'foods','','корм сухой', royal_canin, 'german shepard для крупных собак породы немецкая овчарка', '0', File.open('app/assets/images/dog foods/drk-12.jpg')],
+
+  [dog, 'foods','','консервы', duke, 'консервы для взрослых собак со вкусом ягненока со шпинатом', '150', File.open('app/assets/images/dog foods/duke1.jpg')],
+  [dog, 'foods','','консервы', duke, 'консервы для взрослых собак со вкусом кролика со шпинатом', '150', File.open('app/assets/images/dog foods/duke2.jpg')],
+  [dog, 'foods','','консервы', duke, 'консервы для взрослых собак со вкусом индейки со шпинатом', '150', File.open('app/assets/images/dog foods/duke3.jpg')],
   
   [dog, 'foods','','корм сухой', royal_canin,'size medium adult для средних пород',  '0', File.open('app/assets/images/dog foods/drk-8.jpg'), '10'],
   [dog, 'foods','','корм сухой', royal_canin,'size maxi adult для крупных пород собак', '0', File.open('app/assets/images/dog foods/drk-5.jpg'), '10'],
   [dog, 'foods','','корм сухой', royal_canin, 'size maxi dermacomfort для крупных пород собак c чувствительной кожей', '0', File.open('app/assets/images/dog foods/drk-10.jpg'), '10'],
 
 
-  [dog, 'leads', '1,5', 'поводок', rukka, 'длина 1,5 м, ширина 3 см поводок из прочного синтетического материала, рассчитан на собаку средних размеров', '500.0', File.open('app/assets/images/dog leads/lead2.jpg')],
-  [dog, 'leads', '1,5', 'поводок', hunter, 'длина 1,5 м, ширина 3 см Кожаный поводок, плетение - косичка, рассчитан на собаку средних размеров. Этот удобный и надежный аксессуар станет настоящим украшением для вашего питомца', '800.0', File.open('app/assets/images/dog leads/lead7.jpg')],
-  [dog, 'leads', '2', 'поводок', hunter, 'длина 2 м поводок из прочного синтетического материала, рассчитан на крупную собаку', '600.0', File.open('app/assets/images/dog leads/lead8.jpg')],
-  [dog, 'leads', '5',  'поводок', gigwi, 'длина 5 м поводок-рулетка из прочного синтетического материала, рассчитан на крупную собаку', '2000.0', File.open('app/assets/images/dog leads/lead8.jpg')],
-  [dog, 'leads','4', 'поводок', gigwi, 'длина 4 м поводок-рулетка из прочного синтетического материала, рассчитан на маленькую собаку', '1400.0', File.open('app/assets/images/dog leads/lead4.jpg')],
-  [dog, 'leads',  '6','поводок', hunter, 'длина 6 м поводок-рулетка из прочного синтетического материала, рассчитан на собаку средних размеров', '2000.0', File.open('app/assets/images/dog leads/lead6.jpg')],
-  [dog, 'leads',  '7', 'шлейка', rukka, 'шлейка из мягкого синтетического материала, рассчитана на собаку средних размеров', '765.0', File.open('app/assets/images/dog leads/breast-band1.jpg')],
+  [dog, 'leads', '1,5', 'поводок', rukka, 'длина 1,5 м, ширина 3 см поводок из прочного синтетического материала, рассчитан на собаку весом до 15 кг', '800.0', File.open('app/assets/images/dog leads/lead2.jpg')],
+  [dog, 'leads', '1,5', 'поводок', hunter, 'длина 1,5 м, ширина 3 см Кожаный поводок, плетение - косичка, рассчитан на собаку средних размеров. до 15 кг', '750.0', File.open('app/assets/images/dog leads/lead7.jpg')],
+  [dog, 'leads', '2', 'поводок', hunter, 'длина 2 м поводок из прочного синтетического материала, рассчитан на собаку весом до 20 кг', '600.0', File.open('app/assets/images/dog leads/lead8.jpg')],
+  [dog, 'leads', '5',  'поводок', gigwi, 'длина 5 м поводок-рулетка из прочного синтетического материала, рассчитан на собаку весом до 15 кг', '2000.0', File.open('app/assets/images/dog leads/lead8.jpg')],
+  [dog, 'leads','4', 'поводок', gigwi, 'длина 4 м поводок-рулетка из прочного синтетического материала, рассчитан на собаку весом до 7 кг', '1400.0', File.open('app/assets/images/dog leads/lead4.jpg')],
+  [dog, 'leads',  '6','поводок', hunter, 'длина 6 м поводок-рулетка из прочного синтетического материала, рассчитан на собаку весом до 15 кг', '2000.0', File.open('app/assets/images/dog leads/lead6.jpg')],
+  [dog, 'leads',  '7', 'шлейка', rukka, 'шлейка из мягкого синтетического материала, рассчитана на собаку весом до 15 кг', '765.0', File.open('app/assets/images/dog leads/breast-band1.jpg')],
   [dog, 'leads',  '7', 'шлейка', gigwi, 'шлейка из мягкого синтетического материала, рассчитана на собаку средних размеров', '780.0', File.open('app/assets/images/dog leads/breast_band2.jpg')],
-  [dog, 'leads', '40','ошейник', gigwi, 'максимальный диаметр 40 см, ширина 3 см ошейник из мягкого синтетического материала', '780.0', File.open('app/assets/images/dog leads/collar1.jpg')],
-  [dog, 'leads','25', 'ошейник', rukka, 'максимальный диаметр 25 см, ширина 1.5 см ошейник из мягкого синтетического материала ', '600.0', File.open('app/assets/images/dog leads/collar.jpg')],
-  [dog, 'leads', '35','ошейник', rukka, 'максимальный диаметр 35 см, ширина 2 см ошейник из мягкого синтетического материала ', '680.0', File.open('app/assets/images/dog leads/collar3.jpg')],
+  [dog, 'leads', '40','ошейник', gigwi, '25 - 40 см, ширина 3 см ошейник из мягкого синтетического материала', '780.0', File.open('app/assets/images/dog leads/collar1.jpg')],
+  [dog, 'leads','25', 'ошейник', rukka, '15 - 25 см, ширина 1.5 см ошейник из мягкого синтетического материала ', '600.0', File.open('app/assets/images/dog leads/collar.jpg')],
+  [dog, 'leads', '35','ошейник', rukka, '25 - 35 см, ширина 2 см ошейник из мягкого синтетического материала ', '680.0', File.open('app/assets/images/dog leads/collar3.jpg')],
 
   [dog, 'leads','2','поводок', rukka, 'длина 2 м поводок из прочного синтетического материала, рассчитан на крупную собаку', '600.0', File.open('app/assets/images/dog leads/lead8.jpg'), '20'],
-  [dog, 'leads','40','ошейник', rukka, 'максимальный диаметр 40 см, ширина 3 см ошейник из мягкого синтетического материала', '780.0', File.open('app/assets/images/dog leads/collar1.jpg'), '10'],
-  [dog, 'leads', '35','ошейник', rukka, 'максимальный диаметр 35 см, ширина 2 см ошейник из мягкого синтетического материала ', '680.0', File.open('app/assets/images/dog leads/collar3.jpg'), '5'],
+  [dog, 'leads','40','ошейник', rukka, '30 - 40 см, ширина 3 см ошейник из мягкого синтетического материала', '780.0', File.open('app/assets/images/dog leads/collar1.jpg'), '10'],
+  [dog, 'leads', '35','ошейник', rukka, '25 - 35 см, ширина 2 см ошейник из мягкого синтетического материала ', '680.0', File.open('app/assets/images/dog leads/collar3.jpg'), '5'],
   [dog, 'leads','4', 'поводок', rukka, 'длина 4 м поводок-рулетка из прочного синтетического материала, рассчитан на маленькую собаку', '1400.0', File.open('app/assets/images/dog leads/lead4.jpg'), '8'],
 
   [cat, 'toys', (4..6).to_a.sample, 'мяч', trixie, 'мяч из веревки, размер средний', '140.0', File.open('app/assets/images/cat toys/ball4.jpg')],
@@ -131,19 +134,17 @@ stuffs = [
   [cat, 'toys', (35..36).to_a.sample,'автоматическая игрушка', fat_cat, 'автоматическая игрушка в виде кольца с движущимися мячиками', '2280.0', File.open('app/assets/images/cat toys/circleball.jpg')],
 
   [cat, 'foods', '', 'корм сухой', royal_canin, 'для породы сфинкс старше 12 месяцев', '0', File.open('app/assets/images/cat foods/crk.jpg')],
-  [cat, 'foods','', 'корм сухой', royal_canin, 'для породы сфинкс старше 12 месяцев', '0', File.open('app/assets/images/cat foods/crk.jpg')],
-  [cat, 'foods','', 'корм сухой', royal_canin, 'для персидской породы старше 12 месяцев', '0', File.open('app/assets/images/cat foods/crk-2.jpg')],
   [cat, 'foods','', 'корм сухой', royal_canin, 'для персидской породы старше 12 месяцев', '0', File.open('app/assets/images/cat foods/crk-2.jpg')],
   [cat, 'foods','', 'корм сухой', royal_canin, 'для кошек, следящих за весом', '0', File.open('app/assets/images/cat foods/crk-3.jpg')],
-  [cat, 'foods','', 'корм сухой', royal_canin, 'для кошек, следящих за весом', '0', File.open('app/assets/images/cat foods/crk-3.jpg')],
   [cat, 'foods','', 'корм сухой', royal_canin, 'для вывода шерсти из желудка', '0', File.open('app/assets/images/cat foods/crk-4.jpg')],
-  [cat, 'foods','', 'корм сухой', royal_canin, 'для вывода шерсти из желудка', '0', File.open('app/assets/images/cat foods/crk-4.jpg')],
-  [cat, 'foods','', 'корм сухой', royal_canin, 'для привиредливых ко вкусу кошек', '0', File.open('app/assets/images/cat foods/crk-5.jpg')],
   [cat, 'foods','', 'корм сухой', royal_canin, 'для привиредливых ко вкусу кошек', '0', File.open('app/assets/images/cat foods/crk-5.jpg')],
   [cat, 'foods','', 'корм сухой', royal_canin, 'для породы персидская короткошерстная старше 12 месяцев', '0', File.open('app/assets/images/cat foods/crk-6.jpg')],
-  [cat, 'foods','', 'корм сухой', royal_canin, 'для кошек породы персидская короткошерстная  старше 12 месяцев', '0', File.open('app/assets/images/cat foods/crk-6.jpg')],
   [cat, 'foods','', 'корм сухой', royal_canin, 'для кастрированных и стерилизованных кошек', '0', File.open('app/assets/images/cat foods/crk-8.jpg')],
-  [cat, 'foods','', 'корм сухой', royal_canin, 'для кастрированных и стерилизованных кошек', '0', File.open('app/assets/images/cat foods/crk-8.jpg')],
+
+  [cat, 'foods','','консервы', duke, 'консервы для стерилизованных кошек индейка, клюква', '99', File.open('app/assets/images/cat foods/duke4.jpg')],
+  [cat, 'foods','','консервы', duke, 'консервы для кошек утка, черника', '99', File.open('app/assets/images/cat foods/duke5.jpg')],
+  [cat, 'foods','','консервы', duke, 'консервы для стерилизованных кошек ягненок, брусника', '99', File.open('app/assets/images/cat foods/duke6.jpg')],
+
 
   [cat, 'filler', '', 'наполнитель для туалета', catsan, 'Комкующийся гигиенический наполнитель Catsan.', '', File.open('app/assets/images/catsan.jpg'), '10']]
 # разработан в соответствии с самыми высокими требованиями гигиены кошек. 
@@ -158,7 +159,7 @@ stuffs.each do |pet, group, size, name, brand, annotation, price, picture, sale 
 end
 
 
-(Stuff.foods + Stuff.filler).each do |stuff|
+(Stuff.foods.where(name: 'корм сухой') + Stuff.filler).each do |stuff|
   weights = [[(2..5).to_a.sample, (600..2000).to_a.sample], [ (7..10).to_a.sample, (3000..4500).to_a.sample], [ (11..15).to_a.sample, (3000..7000).to_a.sample]]
   weights.each do |size, price|
     Weight.create(stuff: stuff, size: size, price: price)
